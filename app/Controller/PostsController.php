@@ -2,11 +2,20 @@
 App::uses('AppController', 'Controller');
 class PostsController extends AppController {
 
-
+    public $name = 'Posts';
+    public $fixtures = array('app.post');
 
     public function index() {
         $this->Post->recursive = 0;
         $this->set('posts', $this->paginate());
+    }
+
+    public function view($id = null) {
+        if (!$this->Post->exists($id)) {
+            throw new NotFoundException(__('A notícia está inválida.'));
+        }
+        $options = array('conditions' => array('Post.' . $this->Post->primaryKey => $id));
+        $this->set('novidade', $this->Post->find('first', $options));
     }
 
 

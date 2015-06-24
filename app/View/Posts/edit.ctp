@@ -4,7 +4,7 @@
 
         <ul class="list-group">
             <li class="list-group-item"><?php echo $this->Form->postLink(__('Apagar'), array('action' => 'delete', $this->Form->value('Post._id')), null, __('Tem certeza que deseja apagar este item? %s', $this->Form->value('Post._id'))); ?></li>
-            <li class="list-group-item"><?php echo $this->Html->link(__('Visualizar notícias'), array('action' => 'index')); ?></li>
+            <li class="list-group-item"><?php echo $this->Html->link(__('Lista de notícias'), array('action' => 'index')); ?></li>
         </ul>
 
     </div>

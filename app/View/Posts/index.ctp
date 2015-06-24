@@ -16,9 +16,8 @@
         <table cellpadding="0" cellspacing="0" class="table table-striped table-bordered">
             <thead>
             <tr>
-
+                <th><?php echo $this->Paginator->sort('Primary key'); ?></th>
                 <th><?php echo $this->Paginator->sort('Titulo da notícia'); ?></th>
-                <th><?php echo $this->Paginator->sort('Texto'); ?></th>
                 <th><?php echo $this->Paginator->sort('Autor'); ?></th>
                 <th class="actions"><?php echo __('Ações'); ?></th>
             </tr>
@@ -28,12 +27,12 @@
             foreach ($posts as $post): ?>
                 <tr>
 
+                    <td><?php echo h($post['Post']['_id']); ?>&nbsp;</td>
                     <td><?php echo h($post['Post']['title']); ?>&nbsp;</td>
-                    <td><?php echo h($post['Post']['body']); ?>&nbsp;</td>
                     <td><?php echo h($post['Post']['hoge']); ?>&nbsp;</td>
 
                     <td class="actions">
-
+                        <?php  echo $this->Html->link(__('Detalhar'), array('action' => 'view', $post['Post']['_id']), array('class' => 'btn btn-default btn-xs'));  ?>
                         <?php echo $this->Html->link(__('Editar'), array('action' => 'edit', $post['Post']['_id']), array('class' => 'btn btn-default btn-xs')); ?>
                         <?php echo $this->Form->postLink(__('Apagar'), array('action' => 'delete', $post['Post']['_id']), array('class' => 'btn btn-default btn-xs'), __('Tem certeza que deseja apagar este item? %s?', $post['Post']['_id'])); ?>
                     </td>
