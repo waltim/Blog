@@ -1,3 +1,5 @@
+<?php //echo `whoami`; ?>
+
 <div id="sidebar" class="col-sm-3">
 
     <div class="actions">
